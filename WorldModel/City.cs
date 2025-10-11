@@ -14,7 +14,7 @@ public partial class City
     public int Id { get; set; }
 
     [Column("countryid")]
-    public int Countryid { get; set; }
+    public int CountryId { get; set; }
 
     [Column("name")]
     [StringLength(50)]
@@ -22,15 +22,15 @@ public partial class City
     public string Name { get; set; } = null!;
 
     [Column("latitude")]
-    public int Latitude { get; set; }
+    public decimal Latitutde { get; set; }
 
     [Column("longtitude")]
-    public int Longtitude { get; set; }
+    public decimal Longtitude { get; set; }
 
     [Column("population")]
     public int Population { get; set; }
 
-    [ForeignKey("Countryid")]
+    [ForeignKey("CountryId")]
     [InverseProperty("Cities")]
     public virtual Country Country { get; set; } = null!;
 }
