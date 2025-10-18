@@ -22,10 +22,10 @@ public partial class City
     public string Name { get; set; } = null!;
 
     [Column("latitude")]
-    public decimal Latitutde { get; set; }
+    public int Latitutde { get; set; }
 
     [Column("longtitude")]
-    public decimal Longtitude { get; set; }
+    public int Longtitude { get; set; }
 
     [Column("population")]
     public int Population { get; set; }
