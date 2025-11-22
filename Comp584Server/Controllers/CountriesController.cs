@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Comp584Server.Data.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,12 +18,13 @@ namespace Comp584Server.Controllers
 
         // GET: api/Countries
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Country>>> GetCountries()
         {
             return await context.Countries.ToListAsync();
         }
 
-        // GET: api/Countries
+        // GET: api/Countries/population
         [HttpGet("population")]
         public async Task<ActionResult<IEnumerable<CountryPopulation>>> GetCountriesPopulation()
         {
@@ -37,7 +39,7 @@ namespace Comp584Server.Controllers
                 .ToListAsync();
         }
 
-        // GET: api/Countries
+        // GET: api/Countries/population/5
         [HttpGet("population/{id}")]    
         public ActionResult<CountryPopulation> GetCountriesPopulation(int id)
         {
